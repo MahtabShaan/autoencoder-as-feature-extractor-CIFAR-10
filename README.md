@@ -1,3 +1,5 @@
 # autoencoder-as-feature-extractor-CIFAR-10
 
 I used 2 different autoencoder models ([U-net](https://arxiv.org/pdf/1505.04597.pdf) and Convolutional Autoencoder) to create features for using as input in classifier models to classify the images of [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset. I used both stacked dense layer and dense layers after convolution layers as classifier models. I also used a simple convolution neural network to classify the dataset without any autoencoder as a baseline model.
+
+There was data imbalance in the training set as only 50% of the data (3000 images) of classes: bird, deer and truck were used for training and validation purpose and the rest 3000 images were used for test data. For the other 7 classes, there were 5000 images in the training and validation data and 1000 images in the test data. To tackle this problem, I used the class_weight function in the keras.units library, that tells the model to pay more attention to data belonging to classes with less data.
